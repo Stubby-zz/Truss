@@ -1,1 +1,15 @@
 .DS_Store
+/helpers
+/admin_pages
+/capabilities
+/menus
+/metaboxes
+/pages
+/permalinks
+/post_types
+/posts
+/query_variables
+/roles
+/scheduled_events
+/sidebars
+/taxonomies
