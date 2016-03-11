@@ -10,6 +10,7 @@ function init_permalinks() {
   foreach ( glob( PERMALINKS_DIR . '*.php' ) as $file ) {
     include ( $file );
   }
+  
 
   if ( $wp_permalinks ) {
 

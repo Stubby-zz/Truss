@@ -4,7 +4,7 @@
 add_action( 'admin_menu', 'init_admin_pages' );
 
 function init_admin_pages() {
-
+  
   foreach ( glob( ADMIN_PAGES_DIR . '*.php' ) as $file ) {
     include ( $file );
   }

@@ -1,8 +1,8 @@
 <?php
-
 foreach ( glob( EVENTS_DIR . '*.php' ) as $file ) {
   include ( $file );
 }
+  
 
 if ( $scheduled_events ) {
   foreach ( $scheduled_events as $event ) {

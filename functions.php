@@ -1,2 +1,3 @@
-<?php
-require_once ( 'framework/init.php' ); 
+<?php 
+require_once ( 'framework/init.php' );
+?>

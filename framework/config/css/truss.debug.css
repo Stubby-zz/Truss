@@ -1,0 +1,8 @@
+/* TODO - Truss debug framework */
+.truss.debug {
+  background: #dedede;
+  padding: 25px;
+  position: fixed;
+    bottom: 0;
+    left: 0;
+}

@@ -8,6 +8,7 @@ function init_query_variables( $public_query_vars ) {
   foreach ( glob( QUERY_VARIABLES_DIR . '*.php' ) as $file ) {
     include ( $file );
   }
+  
 
   return $public_query_vars;
 

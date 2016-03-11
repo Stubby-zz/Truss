@@ -5,16 +5,20 @@
 add_action( 'init', 'init_pages' );
 
 function init_pages() {
-
+  
   foreach ( glob( PAGES_DIR . '*.php' ) as $file ) {
+    
     include ( $file );
+    $completed[] = $file;
+ 
   }
-
-  if ( $pages ) { 
-
+  
+  if ( $pages ) {
+ 
     foreach ( $pages as $page ) {
-
+ 
       register_page( $page );
+ 
     }
 
   }

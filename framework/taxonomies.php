@@ -4,6 +4,7 @@
 foreach ( glob( TAXONOMIES_DIR . '*.php' ) as $file ) {
   include ( $file );
 }
+  
 
 if ( !empty( $taxonomies ) ) {
 

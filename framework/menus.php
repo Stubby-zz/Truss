@@ -1,11 +1,9 @@
 <?php
 /* Handles nav menu registration from the menus manifest */
 
-$post_type_files = opendir( NAV_MENUS_DIR );
-
 foreach ( glob( NAV_MENUS_DIR . '*.php' ) as $file ) {
   include ( $file );
-}}
+}
 
 if ( $nav_menus ) {
 

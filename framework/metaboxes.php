@@ -13,8 +13,6 @@ add_action( 'save_post', 'save_meta_boxes', 1, 1);
 function save_meta_boxes( $post_id ) {
 
   $meta_box = $_POST["meta_boxes"];
-
-//clean_dump($_POST); die();
   
   if (count( $meta_box ) > 0 ) {
 
@@ -40,43 +38,47 @@ function register_meta_boxes() {
   foreach ( glob( METABOXES_DIR . '*.php' ) as $file ) {
     include ( $file );
   }
-  
-  foreach ( $metaboxes as $metabox ) {
 
-    if ( $metabox['post_type'] == 'all' ) {
+  if ( $metaboxes ) {
+    
+    foreach ( $metaboxes as $metabox ) {
 
-      $post_types = get_post_types();
+      if ( $metabox['post_type'] == 'all' ) {
 
-      foreach ( $post_types as $post_type ) {
+        $post_types = get_post_types();
 
-          add_meta_box(
-            $metabox['id'], 
-            $metabox['title'], 
-            $metabox['callback'], 
-            $post_type, 
-            $metabox['context'],
-            $metabox['priority'], 
-            $metabox['callback_args']
-          );
+        foreach ( $post_types as $post_type ) {
+
+            add_meta_box(
+              $metabox['id'], 
+              $metabox['title'], 
+              $metabox['callback'], 
+              $post_type, 
+              $metabox['context'],
+              $metabox['priority'], 
+              $metabox['callback_args']
+            );
+
+        }
+
+      } else {
+
+        add_meta_box(
+          $metabox['id'], 
+          $metabox['title'], 
+          $metabox['callback'], 
+          $metabox['post_type'], 
+          $metabox['context'],
+          $metabox['priority'], 
+          $metabox['callback_args']
+        );
 
       }
 
-    } else {
+      if ( $metabox['save_callback'] ) {
+        add_action( 'save_post', $metabox['function'], $metabox['priority'], $metabox['arguments'] );
+      }
 
-      add_meta_box(
-        $metabox['id'], 
-        $metabox['title'], 
-        $metabox['callback'], 
-        $metabox['post_type'], 
-        $metabox['context'],
-        $metabox['priority'], 
-        $metabox['callback_args']
-      );
-
-    }
-
-    if ( $metabox['save_callback'] ) {
-      add_action( 'save_post', $metabox['function'], $metabox['priority'], $metabox['arguments'] );
     }
 
   }

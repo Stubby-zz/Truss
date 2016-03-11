@@ -1,8 +1,9 @@
 <?php
 /* Initializes the framework */
 
-include ( 'constants.php' );
+include ( 'config/constants.php' );
 
+require_once ( 'lib.php' );
 require_once ( 'helpers.php' );
 require_once ( 'menus.php' );
 require_once ( 'admin_pages.php' );
@@ -13,3 +14,4 @@ require_once ( 'post_types.php' );
 require_once ( 'posts.php' );
 require_once ( 'metaboxes.php' );
 require_once ( 'permalinks.php' );
+require_once ( 'shortcodes.php' );
